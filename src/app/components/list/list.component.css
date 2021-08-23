@@ -1,0 +1,67 @@
+table {
+    width: 100%;
+
+}
+.table-container{
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+}
+.mat-column-rank{
+    width: 120px;
+    text-align: center;  
+}
+.mat-column-year{
+    width: 120px; 
+}
+
+.mat-column-revenue{
+    width: 120px; 
+}
+.mat-column-icon{
+    width: 64px; 
+}
+
+.mat-table {
+    padding: 0;
+    background-color: transparent;
+    overflow: auto;
+    max-height: 500px;
+}
+
+.mat-header-cell {
+    color: #0B749B;
+    font-size: 10px;
+    font-weight: 600;
+}
+.mat-header-cell:first-of-type{
+    padding-left: 0;
+}
+.mat-header-cell:last-of-type{
+    padding-right: 0;
+}
+.mat-cell:first-of-type {
+    padding-left: 0;
+}
+.mat-cell:last-of-type{
+    padding-right: 0;
+}
+.mat-footer-cell:first-of-type{
+    padding-left: 0;
+}
+.mat-header-row {
+    height: 40px;
+}
+
+.mat-row .mat-cell {
+    border-bottom: 1px solid #a1a1a1;
+  }
+/* .mat-row:first-of-type {
+    margin-top: 2px;
+    border-top: 2px solid #0B749B;
+  } */
+
+.mat-cell {
+    color: #536B7A;
+}

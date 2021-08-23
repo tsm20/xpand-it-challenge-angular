@@ -1,0 +1,11 @@
+<div class="filters">
+    <app-button text="Top 10 Revenue" [contained]="allTime" (click)="onApplyAllTime()"></app-button>
+    <div class="per-year" >
+        <app-button [text]="buttonText" [contained]="year ? true : false" mat-button [matMenuTriggerFor]="menu"></app-button>
+        <mat-menu #menu="matMenu" >
+            <p>Select a Year</p>
+            <button mat-menu-item disableRipple *ngFor="let item of list" (click)="onApplyPerYear(item)">{{item}}</button>
+        </mat-menu>
+    </div>
+    <img *ngIf="filter" src="/assets/reset.svg" alt="reset_filter" [ngStyle]="{cursor: 'pointer'}" (click)="onResetFilter()" />
+</div>

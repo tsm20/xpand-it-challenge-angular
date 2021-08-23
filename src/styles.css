@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    --darkBlue: #012433;
+    --grayBlue1: #9AAEBB;
+    --grayBlue2: #386071;
+    --grayBlue3: #536B7A;
+    --mediumBlue: #0B749B;
+    --lightBlue: #00BAFF;
+    --orange: #ecb066;
+    --red: #e36650;
+    --white: #ffffff;
+    --gray1: #78849E66;
+    --gray2: #5b5b5b;
+    --gray3: #78849E;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+    color: var(--grayBlue2);
+    font-weight: normal;
+  }
+
+  .btn {
+    border-radius: 20px;
+    font-size: 12px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .filters {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .outlined {
+    background-color: var(--white);
+    border: 1px solid var(--gray1);
+    color: var(--gray1);
+    padding: 8px 12px;
+  }
+
+  .contained {
+    background-color: var(--lightBlue);
+    border: 1px solid var(--lightBlue);
+    color: var(--darkBlue);
+    padding: 8px 12px;
+  }
+
+  .mat-dialog-container {
+    background: white;
+    border-radius: 2px !important;
+    width: 746px !important;
+    padding: 2rem 3rem 1rem 3rem !important;
+    height:100% !important;
+}
+
+.mat-menu-content {
+  width: 180px;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  display: grid;
+  color: #536B7A;
+}
+.mat-menu-content button {
+  color: #536B7A;
+}
+
+.mat-menu-panel {
+  margin: -30px 0 0 166px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

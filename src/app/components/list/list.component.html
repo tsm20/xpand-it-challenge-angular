@@ -1,0 +1,50 @@
+<div class="table-container">
+    <table mat-table [dataSource]="movies" class="mat-elevation-z0" 
+    infinite-scroll
+    [fromRoot]="true"
+    (scrolled)="onScrollDown($event)">
+    
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- rank Column -->
+        <ng-container matColumnDef="rank">
+          <th mat-header-cell *matHeaderCellDef> RANKING </th>
+          <td mat-cell *matCellDef="let element"> {{element.rank}} </td>
+        </ng-container>
+      
+        <!-- title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> TITLE </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+      
+        <!-- year Column -->
+        <ng-container matColumnDef="year">
+          <th mat-header-cell *matHeaderCellDef> YEAR </th>
+          <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+        </ng-container>
+      
+        <!-- revenue Column -->
+        <ng-container matColumnDef="revenue">
+          <th mat-header-cell *matHeaderCellDef> REVENUE </th>
+          <td mat-cell *matCellDef="let element">{{element.revenue ? '$'+element.revenue : ' '}}</td>
+        </ng-container>
+    
+        <!-- icon Column -->
+        <ng-container matColumnDef="icon">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element"> <fa-icon
+            [ngStyle]="{ color: '#9AAEBB', cursor: 'pointer' }"
+            [icon]="faEye"
+            (click)="openDialog(element.id)"
+        ></fa-icon></td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <!-- <div [ngStyle]="{borderBottom: '1px solid #0B749B'}"></div> -->
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            
+        </tr>
+      </table>
+</div>

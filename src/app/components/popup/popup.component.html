@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>{{ data.title }}
+  <div *ngIf="!animate" class="close" 
+    (mouseover)="onMouseMove($event)"
+    (mouseleave)="onMouseLeave($event)"
+    mat-button mat-dialog-close
+  >
+    <img src="/assets/close-24px.svg" alt="close"/>
+    <h5>CLOSE</h5>
+  </div>
+  <div *ngIf="animate" class="animate" 
+    (mouseover)="onMouseMove($event)"
+    (mouseleave)="onMouseLeave($event)"
+    mat-button mat-dialog-close
+  >
+    <img src="/assets/close-24px.svg" alt="close"/>
+    <h5>CLOSE</h5>
+  </div>
+</h1>
+
+<div class="line"></div>
+<div mat-dialog-content>
+  <h3>Year</h3>
+  <h2>{{ data.year }}</h2>
+  <h3>Genre</h3>
+  <h2>{{ data.genre }}</h2>
+  <h3>Description</h3>
+  <h2>{{ data.description }}</h2>
+  <div class="highlighted">
+    <div class="left">
+      <h3>Director</h3>
+      <h2>{{ data.director }}</h2>
+    </div>
+    <div class="right">
+      <h3>Actors</h3>
+      <h2>{{ data.actors }}</h2>
+    </div>
+  </div>
+  <h3>Runtime</h3>
+  <h2>{{ data.runtime }}</h2>
+  <h3>Rating</h3>
+  <h2>{{ data.rating }}</h2>
+  <h3>Votes</h3>
+  <h2>{{ data.votes }}</h2>
+  <h3>Revenue</h3>
+  <h2>${{ data.revenue }}</h2>
+  <h3>Metascore</h3>
+  <h2>{{ data.metascore }}</h2>
+</div>
