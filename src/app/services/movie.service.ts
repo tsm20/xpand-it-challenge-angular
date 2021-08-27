@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Movie } from '../Types';
+import { Movie } from '../Movie';
 import { map } from 'rxjs/operators';
-import { Pagination, Filter } from '../Types';
+import { Filter } from 'src/app/Filter';
+import { Pagination } from 'src/app/Pagination';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,7 +16,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MovieService {
-  private apiUrl = 'http://movie-challenge-api-xpand.azurewebsites.net/api/movies';
+  apiUrl = 'http://movie-challenge-api-xpand.azurewebsites.net/api/movies';
   
   constructor(private http: HttpClient) { }
 

@@ -13,15 +13,3 @@ export interface Movie {
     votes?: number,
     metascore?: number,
 }
-
-export interface Pagination {
-    size: number;
-    page: number;
-}
-
-export interface Filter {
-    start?: number,
-    end?: number,
-    rank?: number,
-    actor?: string,
-}

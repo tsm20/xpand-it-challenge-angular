@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('xpand-it-challenge-angular');
   });
 
-  it('should render title', () => {
+  it('should render h2 element', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('xpand-it-challenge-angular app is running!');
+    const h2 = fixture.nativeElement.querySelector('h2')
+    expect(h2.textContent).toContain('Movie ranking');
   });
 });

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser'
 
 import { HeaderComponent } from './header.component';
 
@@ -19,7 +20,12 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create header', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have header class in DOM', () => {
+    const header = fixture.debugElement.query(By.css('.header'))
+    expect(header).toBeTruthy();
   });
 });

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Filter } from '../Types';
+import { Filter } from 'src/app/Filter';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
-  private subject = new Subject<any>();
+  subject = new Subject<any>();
   private customFilter = {hasFilter: false as boolean, filter: {} as Filter}
 
   constructor() { }
@@ -27,7 +28,7 @@ export class FilterService {
     this.subject.next(this.customFilter);
   }
 
-  onToggle(): Observable<any> {
+  getSubject(): Observable<any> {
     return this.subject.asObservable();
   }
 }

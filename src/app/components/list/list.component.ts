@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MovieService } from 'src/app/services/movie.service';
-import { Movie } from 'src/app/Types';
+import { Movie } from 'src/app/Movie';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { Pagination, Filter } from 'src/app/Types';
+import { Filter } from 'src/app/Filter';
+import { Pagination } from 'src/app/Pagination';
 import {MatTable} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
 import { PopupComponent } from '../popup/popup.component';
@@ -23,28 +24,40 @@ export class ListComponent implements OnInit {
   filter: Filter = {};
   // @ts-ignore
   @ViewChild(MatTable) table: MatTable<Movie>;
-  subscription: Subscription;
+  subscription: Subscription = new Subscription();
 
   constructor(private movieService: MovieService, public dialog: MatDialog, private filterService: FilterService) {
-    this.subscription = this.filterService
-      .onToggle()
-      .subscribe((customFilter) => {
-        //reset pagination when hasFilters
-        this.pagination = {page: 0, size: 15}
-        this.movieService.getMovies(this.pagination, customFilter.filter).subscribe((movies) => {
-          if(customFilter.hasFilter){
-            this.applyTop10(movies)
-          }else{
-            this.movies = movies
-          }
-        }
-      );
-   })}
-
+    
+   }
 
   ngOnInit(): void {
-    this.movieService.getMovies(this.pagination, {}).subscribe((movies) => (this.movies = movies))
+    this.movieService.getMovies(this.pagination, {}).subscribe((movies) => (this.movies = movies));
+    this.subscription = this.filterService
+    .getSubject()
+    .subscribe((customFilter) => this.applyOrResetFilters(customFilter));
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+}
+
+  onFilterChanged(): void {
+    this.subscription = this.filterService
+    .getSubject()
+    .subscribe((customFilter) => this.applyOrResetFilters(customFilter));
+  }
+
+  applyOrResetFilters(customFilter: any){
+    //reset pagination when hasFilters
+    this.pagination = {page: 0, size: 15}
+    this.movieService.getMovies(this.pagination, customFilter.filter).subscribe((movies) => {
+      if(customFilter.hasFilter){
+        this.applyTop10(movies)
+      }else{
+        this.movies = movies
+      }
+    })
+  };
 
   applyTop10(list: Movie[]): void {
     let temp = list;

@@ -16,7 +16,6 @@ import { ButtonComponent } from './components/button/button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './components/list/list.component';
 import { PopupComponent } from './components/popup/popup.component';
-import { FilterMenuComponent } from './components/filter-menu/filter-menu.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { FilterMenuComponent } from './components/filter-menu/filter-menu.compon
     ButtonComponent,
     ListComponent,
     PopupComponent,
-    FilterMenuComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { Movie } from 'src/app/Types';
+import { Movie } from 'src/app/Movie';
 import {  MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
@@ -9,8 +9,7 @@ import {  MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class PopupComponent implements OnInit {
   animate: boolean = false;
-  //@ts-ignore
-  @Input() movie: Movie;
+  
   constructor(@Inject(MAT_DIALOG_DATA) public data: Movie) { }
 
   ngOnInit(): void {
